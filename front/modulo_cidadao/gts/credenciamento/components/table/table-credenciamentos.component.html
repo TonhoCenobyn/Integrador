@@ -1,0 +1,104 @@
+<div class="kt-portlet mb-0 p-4 h-100">
+   <div class=" card info-agua">
+      <div class="card-body info-agua">
+         <div class="card-title header">Visualizar Requisições de Credenciamento</div>
+      </div>
+   </div>
+   <ng-container *ngIf="solicitacoes.length == 0; else tabela">
+      <div *ngIf="solicitacoes.length == 0" class="empty">
+         <h3 class="text-muted text-center">Não há processos de credenciamento gerados.</h3>
+      </div>
+   </ng-container>
+   <ng-template #tabela>
+   <div class="table-responsive">
+      <table class="table table-hover table-striped table-condensed my-3">
+         <thead>
+         <tr class="active">
+            <th class="text-center">Status</th>
+            <th class="text-center">Num. Processo</th>
+            <th class="text-center">Data de Solicitação</th>
+            <th class="text-center">Empresa</th>
+            <th class="text-center">Ações</th>
+         </tr>
+         </thead>
+         <tbody>
+         <ng-container *ngFor="let credenciamento of solicitacoes">
+               <tr class="text-center">
+                  <td width="10%">
+                     {{credenciamento.status}}
+                  </td>
+                  <td width="10%">
+                     {{credenciamento.numero_processo}}
+                  </td>
+                  <td width="10%">
+                     {{ credenciamento.data_solicitacao | date: 'dd/MM/yyyy' }}
+                  </td>
+                  <td width="10%">
+                     {{credenciamento.estabelecimento}}
+                  </td>
+                  <!-- AÇÕES -->
+                  <td width="12%" class="text-center">
+                     <div class="d-flex gap-8 h-100">
+                        <button
+                           class="btn btn-outline-secondary btn-pdsa btn-modal"
+                           type="button"
+                           data-toggle="modal"
+                           (click)="apresentarJustificativa(credenciamento.uuid)"
+                           [disabled]="credenciamento.status == 'AGUARDANDO REVISÃO' || credenciamento.status == 'APROVADO'"
+                        >
+                           Ajustar
+                        </button>
+                     </div>
+                  </td>
+               </tr>
+            </ng-container>
+         </tbody>
+      </table>
+   </div>
+   </ng-template>
+</div>
+<app-generic-modal [id]="'solicitar-revisao'">
+   <div icon>
+      <i class="iconpdsa icon-iconpdsa-editar-lg md pdsa-badge mb-2"></i>
+   </div>
+   <div title class="d-flex flex-column align-items-center mb-0">
+      <h2 class="font-weight-bold">Preenchimento Reprovado</h2>
+   </div>
+   <div description>
+      <div>
+         <hr />
+         <h4 class="text-brand-dark">Motivos da reprovação</h4>
+         <hr />
+         <ng-container *ngFor="let correcao of correcoes">
+            <div class="d-flex align-items-center justify-content-between my-1">
+               <app-material-input>
+                  <textarea
+                     class="form-control"
+                     cols="100"
+                     rows="2"
+                     [value]="correcao"
+                     disabled
+                  ></textarea>
+               </app-material-input>
+            </div>
+         </ng-container>
+      </div>
+   </div>
+
+   <button
+      class="btn btn-primary btn-pdsa btn-modal"
+      data-dismiss="modal"
+      [attr.data-target]="'#motivos-revisao'"
+      (click)="ajustarForm()"
+      confirm
+   >
+      <ng-container *ngIf="!sendingRequest; else sending">
+         Ajustar agora
+      </ng-container>
+      <ng-template #sending>
+         Enviando
+         <i class="fas fa-spinner fa-spin"></i>
+      </ng-template>
+   </button>
+
+   ></app-generic-modal>

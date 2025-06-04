@@ -1,0 +1,58 @@
+.kt-form {
+   padding-bottom: 1rem;
+   width: 100%;
+}
+
+.kt-section {
+   margin: 0;
+}
+
+.kt-section legend {
+   margin-bottom: 32px;
+   font-weight: 600;
+   font-size: 24px;
+   color: var(--brand-secondary);
+}
+
+.card.info-agua,
+.card.error-info {
+   border: none;
+}
+
+.error-info.card-body {
+   font-size: 14px;
+   font-weight: 500;
+}
+
+.info-agua.card-body {
+   padding: 32px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   grid-gap: 11px;
+   gap: 11px;
+   border-radius: 24px;
+   background: #d6eef5ff;
+   background: var(--support-bg-light, #d6eef5ff);
+   flex-wrap: wrap;
+   justify-content: center;
+   margin-bottom: 20px;
+
+   color: #000;
+   font-family: var(--font-family, "Barlow");
+   font-size: 18px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 110.5%;
+   letter-spacing: -0.09px;
+}
+
+.info-agua .header {
+   color: var(--brand-secondary-dark, #00577fff);
+   font-size: 24px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 100%; /* 24px */
+   letter-spacing: 0.24px;
+   margin-bottom: 0;
+}

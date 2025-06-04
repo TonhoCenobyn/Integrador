@@ -1,0 +1,287 @@
+<div class="kt-portlet mb-0 p-4 h-100">
+   <div class=" card info-agua">
+      <div class="card-body info-agua">
+         <div class="card-title header">Credenciamento GTS</div>
+      </div>
+   </div>
+   <form (ngSubmit)="onSubmit()" class="kt-section" [formGroup]="form">
+      <fieldset class="kt-section">
+
+         <legend>Dados do Profissional</legend>
+
+         <div class="form-group">
+            <div class="form-row">
+               <div class="col-md-6">
+                  <app-material-input label="CPF">
+                     <input
+                        type="text"
+                        formControlName="cpfProfissional"
+                        placeholder="CPF"
+                        mask="000.000.000-00"
+                     >
+                  </app-material-input>
+               </div>
+               <div class="col-md-6">
+                  <app-material-input label="Nome do Profissional">
+                     <input
+                        type="text"
+                        formControlName="nomeProfissional"
+                        placeholder="Nome do Profissional"
+                        appToUpperCase
+                     >
+                  </app-material-input>
+               </div>
+            </div>
+         </div>
+
+         <div class="form-group">
+            <div class="form-row">
+               <div class="col-md-4">
+                  <app-material-input label="Telefone">
+                     <input
+                        type="text"
+                        formControlName="telefoneProfissional"
+                        placeholder="Telefone"
+                        mask="(00) 0000-0000||(00) 00000-0000"
+                     >
+                  </app-material-input>
+               </div>
+               <div class="col-md-8">
+                  <app-material-input label="E-mail">
+                     <input
+                        type="text"
+                        formControlName="emailProfissional"
+                        placeholder="E-mail"
+                     >
+                  </app-material-input>
+               </div>
+            </div>
+         </div>
+
+         <div class="form-group">
+            <div class="form-row">
+               <div class="col-md-4">
+                  <app-material-input label="Número CRMV">
+                     <input
+                        type="text"
+                        formControlName="crmvProfissional"
+                        placeholder="CRMV"
+                     >
+                  </app-material-input>
+               </div>
+               <div class="col-md-8">
+                  <app-material-input label="Formação">
+                     <input
+                        type="text"
+                        formControlName="formacao"
+                        placeholder="Portaria"
+                     >
+                  </app-material-input>
+               </div>
+
+            </div>
+         </div>
+      </fieldset>
+
+      <fieldset class="kt-section">
+
+         <legend>Dados da empresa</legend>
+
+         <div class="form-group">
+            <div class="form-row">
+               <div class="col col-4">
+                  <app-material-input label="Nome Fantasia">
+                     <input
+                        type="text"
+                        placeholder="nomeFantasia"
+                        formControlName="nomeFantasia"
+                     />
+                  </app-material-input>
+               </div>
+               <div class="col col-4">
+                  <app-material-input label="CNPJ">
+                     <input
+                        type="text"
+                        formControlName="cnpj"
+                        placeholder="CNPJ"
+                        mask="CPF_CNPJ"
+                     />
+                  </app-material-input>
+               </div>
+               <div class="col col-4">
+                  <app-material-input label="Inscrição Estadual">
+                     <input
+                        type="text"
+                        formControlName="inscricaoEstadual"
+                        placeholder="InscricaoEstadual"
+                        />
+                  </app-material-input>
+               </div>
+            </div>
+         </div>
+
+         <div class="form-group">
+            <div class="form-row">
+               <div class="col-md-4">
+                  <app-material-input label="CRMV">
+                     <input
+                        type="text"
+                        formControlName="crmv"
+                        placeholder="CRMV"
+                        appToUpperCase
+                     >
+                  </app-material-input>
+               </div>
+               <div class="col-md-6">
+                  <app-material-input label="Razão Social">
+                     <input
+                        type="text"
+                        formControlName="razaoSocial"
+                        placeholder="Nome do Profissional"
+                        appToUpperCase
+                     >
+                  </app-material-input>
+               </div>
+            </div>
+         </div>
+
+         <div class="form-group">
+            <div class="form-row">
+               <div class="col-md-3">
+                  <app-material-input label="Telefone">
+                     <input
+                        type="text"
+                        formControlName="telefone"
+                        placeholder="Telefone"
+                        mask="(00) 0000-0000||(00) 00000-0000"
+                     >
+                  </app-material-input>
+               </div>
+               <div class="col-md-3">
+                  <app-material-input label="Celular">
+                     <input
+                        type="text"
+                        formControlName="celular"
+                        placeholder="Celular"
+                        mask="(00) 0000-0000||(00) 00000-0000"
+                     >
+                  </app-material-input>
+               </div>
+               <div class="col-md-6">
+                  <app-material-input label="E-mail">
+                     <input
+                        type="text"
+                        formControlName="email"
+                        placeholder="E-mail"
+                        appToLowerCase
+                     >
+                  </app-material-input>
+               </div>
+            </div>
+         </div>
+      </fieldset>
+
+      <fieldset>
+
+         <legend>Dados de endereço</legend>
+
+         <div class="form-group">
+            <div class="form-row">
+               <div class="col-md-5">
+                  <app-material-input
+                     label="CEP"
+                     icon="iconpdsa icon-iconpdsa-analises-criticas-sm md"
+                     (onIconClick)="searchCep()"
+                  >
+                     <input
+                        type="text"
+                        formControlName="cepContratante"
+                        placeholder="CEP"
+                        mask="00000-000"
+                     >
+                  </app-material-input>
+               </div>
+               <span class="align-self-center px-4">
+                  <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank" class="text-neutral-11">Não sei meu CEP</a>
+               </span>
+            </div>
+         </div>
+
+         <div class="form-group">
+            <div class="form-row">
+               <div class="col-md-10">
+                  <app-material-input label="Logradouro">
+                     <input
+                        type="text"
+                        formControlName="logradouroContratante"
+                        placeholder="Logradouro"
+                        appToUpperCase
+                     >
+                  </app-material-input>
+               </div>
+               <div class="col-md-2">
+                  <app-material-input label="Nº">
+                     <input
+                        type="number"
+                        formControlName="numeroContratante"
+                        placeholder="Nº"
+                        appToUpperCase
+                        (keyup)="debounce.next($event.target.value)"
+                     >
+                  </app-material-input>
+               </div>
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="form-row">
+               <div class="col-md-4">
+                  <app-material-input label="Complemento">
+                     <input
+                        type="text"
+                        formControlName="complementoContratante"
+                        placeholder="Complemento"
+                        appToUpperCase
+                     >
+                  </app-material-input>
+               </div>
+               <div class="col-md-5">
+                  <app-material-input label="Município">
+                     <input
+                        type="text"
+                        formControlName="municipioContratante"
+                        placeholder="Município"
+                        appToUpperCase
+                     >
+                  </app-material-input>
+               </div>
+               <div class="col-md-3">
+                  <app-material-input label="Estado">
+                     <input
+                        type="text"
+                        formControlName="ufContratante"
+                        placeholder="Estado"
+                        appToUpperCase
+                     >
+                  </app-material-input>
+               </div>
+            </div>
+         </div>
+      </fieldset>
+      <div class="d-flex justify-content-end">
+         <button
+            class="btn btn-pdsa btn-primary"
+            type="submit"
+            [disabled]="sendingRequest"
+         >
+            {{ sendingRequest ? 'Enviando' : 'Enviar' }}
+            <ng-container *ngIf="sendingRequest">
+               <i class="fa fa-spinner fa-spin"></i>
+            </ng-container>
+            <ng-container *ngIf="!sendingRequest">
+               <i class="fa fa-arrow-right"></i>
+            </ng-container>
+         </button>
+      </div>
+
+   </form>
+</div>

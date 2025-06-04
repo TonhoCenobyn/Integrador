@@ -1,0 +1,59 @@
+.modal-content {
+  width: fit-content;
+}
+
+@media (max-width: 550px) {
+  .modal-content {
+    width: min-content;
+    padding: auto 10px;
+  }
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: initial;
+    margin-top: 0;
+    padding-inline: 12px;
+  }
+}
+
+.modal .modal-content .modal-header .modal-title {
+  max-width: none !important;
+}
+
+.modal-header {
+  border-bottom: none;
+  margin-bottom: 0 !important;
+}
+
+.modal-dialog {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-bottom: 0;
+}
+
+.modal-content .modal-footer {
+  padding: 0;
+  border-top: none;
+  gap: 12px;
+}
+
+.modal-content .modal-footer .btn.btn-primary.btn-pdsa {
+  width: 291px;
+  height: 40px;
+  margin-bottom: 48px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.025em;
+}
+
+.modal-dialog .modal-content .modal-header,
+.modal-dialog .modal-content .modal-body,
+.modal-dialog .modal-content .modal-footer {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+}

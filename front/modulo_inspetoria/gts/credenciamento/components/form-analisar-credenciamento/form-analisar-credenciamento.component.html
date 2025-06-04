@@ -1,0 +1,365 @@
+<section class="kt-portlet">
+   <div class="kt-portlet__head justify-content-start align-items-center">
+        <span class="main-icon">
+            <i class="icon fa-cookie"></i>
+        </span>
+      <h1 class="mb-0">
+         <strong class="text-brand-secondary">Análise de Preenchimento</strong>
+      </h1>
+   </div>
+   <app-loading-skeleton [isLoading]="isLoading">
+      <div class="kt-portlet mb-0 p-4 h-100">
+         <form class="kt-section" [formGroup]="formPreenchimento">
+            <fieldset class="kt-section">
+
+               <legend>Dados do Profissional</legend>
+
+               <div class="form-group">
+                  <div class="form-row">
+                     <div class="col-md-6">
+                        <app-material-input label="CPF">
+                           <input
+                              type="text"
+                              formControlName="cpfProfissional"
+                              placeholder="CPF"
+                              mask="000.000.000-00"
+                           >
+                        </app-material-input>
+                     </div>
+                     <div class="col-md-6">
+                        <app-material-input label="Nome do Profissional">
+                           <input
+                              type="text"
+                              formControlName="nomeProfissional"
+                              placeholder="Nome do Profissional"
+                              appToUpperCase
+                           >
+                        </app-material-input>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="form-group">
+                  <div class="form-row">
+                     <div class="col-md-4">
+                        <app-material-input label="Telefone">
+                           <input
+                              type="text"
+                              formControlName="telefoneProfissional"
+                              placeholder="Telefone"
+                              mask="(00) 0000-0000||(00) 00000-0000"
+                           >
+                        </app-material-input>
+                     </div>
+                     <div class="col-md-8">
+                        <app-material-input label="E-mail">
+                           <input
+                              type="text"
+                              formControlName="emailProfissional"
+                              placeholder="E-mail"
+                           >
+                        </app-material-input>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="form-group">
+                  <div class="form-row">
+                     <div class="col-md-4">
+                        <app-material-input label="Número CRMV">
+                           <input
+                              type="text"
+                              formControlName="crmvProfissional"
+                              placeholder="CRMV"
+                           >
+                        </app-material-input>
+                     </div>
+                     <div class="col-md-8">
+                        <app-material-input label="Formação">
+                           <input
+                              type="text"
+                              formControlName="formacao"
+                              placeholder="Portaria"
+                           >
+                        </app-material-input>
+                     </div>
+
+                  </div>
+               </div>
+            </fieldset>
+
+            <fieldset class="kt-section">
+
+               <legend>Dados da Empresa</legend>
+
+               <div class="form-group">
+                  <div class="form-row">
+                     <div class="col-md-6">
+                        <app-material-input label="Nome fantasia">
+                           <input
+                              type="text"
+                              formControlName="nomeFantasia"
+                              placeholder="CPF"
+                              appToUpperCase
+                              readonly
+                           >
+                        </app-material-input>
+                     </div>
+                     <div class="col-md-6">
+                        <app-material-input label="Razão Social">
+                           <input
+                              type="text"
+                              formControlName="razaoSocial"
+                              placeholder="Nome do Profissional"
+                              appToUpperCase
+                              readonly
+                           >
+                        </app-material-input>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="form-group">
+                  <div class="form-row">
+                     <div class="col-md-4">
+                        <app-material-input label="CNPJ/CPF">
+                           <input
+                              type="text"
+                              formControlName="cnpj"
+                              placeholder="CNPJ"
+                              mask="CPF_CNPJ"
+                              readonly
+                           >
+                        </app-material-input>
+                     </div>
+                     <div class="col-md-4">
+                        <app-material-input label="Inscrição estadual">
+                           <input
+                              type="text"
+                              formControlName="inscricaoEstadual"
+                              placeholder="Inscrição estadual"
+                              appToUpperCase
+                           >
+                        </app-material-input>
+                     </div>
+                     <div class="col-md-4">
+                        <app-material-input label="CRMV">
+                           <input
+                              type="text"
+                              formControlName="crmv"
+                              placeholder="CRMV"
+                              appToUpperCase
+                           >
+                        </app-material-input>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="form-group">
+                  <div class="form-row">
+                     <div class="col-md-3">
+                        <app-material-input label="Telefone">
+                           <input
+                              type="text"
+                              formControlName="telefone"
+                              placeholder="Telefone"
+                              mask="(00) 0000-0000||(00) 00000-0000"
+                           >
+                        </app-material-input>
+                     </div>
+                     <div class="col-md-3">
+                        <app-material-input label="Celular">
+                           <input
+                              type="text"
+                              formControlName="celular"
+                              placeholder="Celular"
+                              mask="(00) 0000-0000||(00) 00000-0000"
+                           >
+                        </app-material-input>
+                     </div>
+                     <div class="col-md-6">
+                        <app-material-input label="E-mail">
+                           <input
+                              type="text"
+                              formControlName="email"
+                              placeholder="E-mail"
+                              appToLowerCase
+                           >
+                        </app-material-input>
+                     </div>
+                  </div>
+               </div>
+            </fieldset>
+
+            <fieldset>
+
+               <legend>Dados de Endereço</legend>
+
+               <div class="form-group">
+                  <div class="form-row">
+                     <div class="col-md-5">
+                        <app-material-input
+                           label="CEP"
+                        >
+                           <input
+                              type="text"
+                              formControlName="cepContratante"
+                              placeholder="CEP"
+                              mask="00000-000"
+                           >
+                        </app-material-input>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="form-group">
+                  <div class="form-row">
+                     <div class="col-md-10">
+                        <app-material-input label="Logradouro">
+                           <input
+                              type="text"
+                              formControlName="logradouroContratante"
+                              placeholder="Logradouro"
+                              appToUpperCase
+                           >
+                        </app-material-input>
+                     </div>
+                     <div class="col-md-2">
+                        <app-material-input label="Nº">
+                           <input
+                              type="number"
+                              formControlName="numeroContratante"
+                              placeholder="Nº"
+                              appToUpperCase
+                           >
+                        </app-material-input>
+                     </div>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="form-row">
+                     <div class="col-md-4">
+                        <app-material-input label="Complemento">
+                           <input
+                              type="text"
+                              formControlName="complementoContratante"
+                              placeholder="Complemento"
+                              appToUpperCase
+                           >
+                        </app-material-input>
+                     </div>
+                     <div class="col-md-5">
+                        <app-material-input label="Município">
+                           <input
+                              type="text"
+                              formControlName="municipioContratante"
+                              placeholder="Município"
+                              appToUpperCase
+                           >
+                        </app-material-input>
+                     </div>
+                     <div class="col-md-3">
+                        <app-material-input label="Estado">
+                           <input
+                              type="text"
+                              formControlName="ufContratante"
+                              placeholder="Estado"
+                              appToUpperCase
+                           >
+                        </app-material-input>
+                     </div>
+                  </div>
+               </div>
+            </fieldset>
+         </form>
+      </div>
+      <div class="kt-portlet__foot d-flex justify-content-end flex-wrap">
+         <app-generic-modal [id]="'solicitar-revisao'">
+            <button
+               class="btn btn-outline-secondary btn-pdsa btn-modal"
+               type="button"
+               data-toggle="modal"
+               [attr.data-target]="'#solicitar-revisao'"
+               [disabled]="false"
+            >
+               Reprovar
+               <i class="flaticon2-cross"></i>
+            </button>
+            <div icon>
+               <i class="iconpdsa icon-iconpdsa-editar-lg md pdsa-badge mb-2"></i>
+            </div>
+            <div title class="d-flex flex-column align-items-center mb-0">
+               <h2 class="font-weight-bold">SOLICITAR REVISÃO</h2>
+            </div>
+            <div description>
+               <div>
+                  <hr>
+                  <h4 class="text-brand-dark">Motivo da revisão</h4>
+                  <hr>
+                  <ng-container *ngFor="let motivoRevisao of motivosRevisao; let i = index">
+                     <div class="d-flex align-items-center justify-content-between my-1">
+                        <app-material-input>
+                                    <textarea
+                                       class="form-control"
+                                       cols="100"
+                                       rows="2"
+                                       [value]="motivoRevisao"
+                                       disabled
+                                    ></textarea>
+                        </app-material-input>
+                        <button class="btn btn-pdsa btn-icon main-icon delete ml-2" (click)="removeMotivo(i)">
+                           <i class="icondtam icon-ph_trash-bold"></i>
+                        </button>
+                     </div>
+                  </ng-container>
+
+                  <form [formGroup]="formRevisao" class="d-flex align-items-center ">
+                     <app-material-input kind="input-text" label="">
+                        <textarea
+                           formControlName="motivoRevisao"
+                           [placeholder]="'Digite o motivo da revisão'"
+                           class="form-control"
+                           cols="100"
+                           rows="3"
+                        ></textarea>
+                     </app-material-input>
+                     <button class="btn btn-pdsa btn-icon main-icon ml-2 " (click)="addMotivo()">
+                        <i class="icondtam icon-material-plus-rounded"></i>
+                     </button>
+                  </form>
+               </div>
+            </div>
+
+            <button
+               class="btn btn-primary btn-pdsa btn-modal"
+               data-dismiss="modal"
+               [attr.data-target]="'#solicitar-revisao'"
+               confirm
+               (click)="avaliarCadastro('Reprovado')"
+               [disabled]="motivosRevisao?.length === 0 || sendingRequest"
+            >
+               <ng-container *ngIf="!sendingRequest; else sending">
+                  Solicitar revisão
+                  <i class="fas fa-check"></i>
+               </ng-container>
+               <ng-template #sending>
+                  Enviando
+                  <i class="fas fa-spinner fa-spin"></i>
+               </ng-template>
+            </button>
+            ></app-generic-modal>
+         <button class="btn btn-primary btn-pdsa" type="submit"
+                 (click)="avaliarCadastro('Aprovado')" [disabled]="sendingRequest">
+            <ng-container *ngIf="!sendingRequest; else sending">
+               Aprovar
+               <i class="fas fa-check"></i>
+            </ng-container>
+            <ng-template #sending>
+               Enviando
+               <i class="fas fa-spinner fa-spin"></i>
+            </ng-template>
+         </button>
+      </div>
+   </app-loading-skeleton>
+</section>
+

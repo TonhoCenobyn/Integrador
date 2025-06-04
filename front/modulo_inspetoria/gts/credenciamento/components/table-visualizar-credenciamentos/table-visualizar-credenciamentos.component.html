@@ -1,0 +1,57 @@
+<div class="kt-portlet mb-0 p-4 h-100">
+   <h3 class="title text-center mt-3">Aguardando Credenciamento</h3>
+   <ng-container *ngIf="solicitacoes.length == 0; else tabela">
+      <div *ngIf="solicitacoes.length == 0" class="empty">
+         <h3 class="text-muted text-center">Não há processos de credenciamento tramitados.</h3>
+      </div>
+   </ng-container>
+   <ng-template #tabela>
+   <div class="table-responsive">
+      <table class="table table-hover table-striped table-condensed my-3">
+         <thead>
+         <tr class="active">
+            <th class="text-center">Num. Processo</th>
+            <th class="text-center">Empresa</th>
+            <th class="text-center">Usuario</th>
+            <th class="text-center">Data de Solicitação</th>
+            <th class="text-center">Data de Tramitação</th>
+            <th class="text-center">Ações</th>
+         </tr>
+         </thead>
+         <tbody>
+         <ng-container *ngFor="let processo of solicitacoes">
+            <tr class="text-center">
+               <td width="10%">
+                  {{processo.numero_processo}}
+               </td>
+               <td width="10%">
+                  {{processo.estabelecimento}}
+               </td>
+               <td width="10%">
+                  {{processo.usuario}}
+               </td>
+               <td width="10%">
+                  {{ processo.data_solicitacao | date: 'dd/MM/yyyy' }}
+               </td>
+               <td  width="10%">
+                  {{ processo.data_tramitacao | date: 'dd/MM/yyyy' }}
+               </td>
+               <!-- AÇÕES -->
+               <td width="12%" class="text-center">
+                  <div class="d-flex gap-8 h-100">
+                     <button
+                        type="button"
+                        class="btn btn-outline-secondary btn-pdsa list-action"
+                        title="Analisar"
+                        [routerLink]="['/principal/gts/analisar', processo.uuid]">
+                     Analisar
+                     </button>
+                  </div>
+               </td>
+            </tr>
+         </ng-container>
+         </tbody>
+      </table>
+   </div>
+   </ng-template>
+</div>
